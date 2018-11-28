@@ -13,7 +13,7 @@ namespace BibliTech.FileUtils.NetFwConsole
     internal static class Utils
     {
 
-        public static void BackupFile(string filePath, string startingFolder, string backupFolder)
+        public static string BackupFile(string filePath, string startingFolder, string backupFolder)
         {
             var newFilePath = GetMovePath(filePath, startingFolder, backupFolder);
 
@@ -21,6 +21,8 @@ namespace BibliTech.FileUtils.NetFwConsole
             Directory.CreateDirectory(newFileFolderPath);
 
             File.Copy(filePath, newFilePath, true);
+
+            return newFilePath;
         }
 
         public static string GetMovePath(string filePath, string startingFolder, string newFolder)

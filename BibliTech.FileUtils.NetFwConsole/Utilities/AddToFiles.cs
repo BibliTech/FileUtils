@@ -22,11 +22,13 @@ namespace BibliTech.FileUtils.NetFwConsole.Utilities
             Utils.ScanFiles(workingFolder, options.Filter, filePath =>
             {
                 var fileContent = File.ReadAllText(filePath, Encoding.UTF8);
+                Console.Write(filePath + ": ");
 
                 if (options.UniqueAppend)
                 {
                     if (fileContent.Contains(options.Content))
                     {
+                        Console.WriteLine("Skipped (contains content)");
                         return;
                     }
                 }
@@ -44,9 +46,11 @@ namespace BibliTech.FileUtils.NetFwConsole.Utilities
                 if (options.Backup)
                 {
                     Utils.BackupFile(filePath, workingFolder, backupFolder);
+                    Console.Write("Backed up - ");
                 }
 
                 File.WriteAllText(filePath, fileContent, Encoding.UTF8);
+                Console.WriteLine("Added.");
             });
         }
 

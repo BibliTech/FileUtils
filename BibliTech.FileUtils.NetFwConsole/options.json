@@ -1,10 +1,14 @@
 {
-    "Action": "AddToFiles",
+    "Action": "BackupFiles",
     "AddToFilesOptions": {
         "Folder": "D:\\Temp\\Data",
         "Filter": "ads.txt",
         "Content": "456",
         "UniqueAppend": false,
         "EnsureNewLine": true
+    },
+    "BackupFilesOptions": {
+        "Folder": "D:\\Temp\\Data",
+        "Filter": "ads.txt"
     }
 }

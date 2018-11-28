@@ -14,6 +14,7 @@ namespace BibliTech.FileUtils.NetFwConsole.Models
         public string Action { get; set; }
 
         public AddToFilesOptions AddToFilesOptions { get; set; }
+        public BackupFilesOptions BackupFilesOptions { get; set; }
 
     }
 
