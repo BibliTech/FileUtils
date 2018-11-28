@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BibliTech.FileUtils.NetFwConsole.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,10 +7,20 @@ using System.Threading.Tasks;
 
 namespace BibliTech.FileUtils.NetFwConsole
 {
-    class Program
+
+    public class Program
     {
-        static void Main(string[] args)
+
+        public static void Main(string[] args)
         {
+            var options = Utils.ReadJsonFile<ScriptOptions>("options.json", false) ?? new ScriptOptions();
+
+            Console.WriteLine(options.Action);
+
+            var action = Utils.GetAction(options.Action);
+            action.Execute(options);
         }
+
     }
+
 }
